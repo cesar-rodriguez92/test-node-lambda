@@ -1,0 +1,30 @@
+service: test-node-lambda
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  region: us-east-1
+  memorySize: 128
+
+functions:
+  swapiGetAllPlanets:
+    handler: src/handlers/external.externalGetAllPlanets
+    events:
+      - httpApi:
+          path: /swapi/planets
+          method: get
+  swapiGetPlanetById:
+    handler: src/handlers/external.externalGetPlanetById
+    events:
+      - httpApi:
+          path: /swapi/planets/{planetId}
+          method: get
+  createElement:
+    handler: src/handlers/internal.createCharacter
+    events:
+      - httpApi:
+          path: /characters/create
+          method: post
+

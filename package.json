@@ -1,0 +1,16 @@
+{
+  "name": "test-node-lambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "invokePlanets": "sls invoke local --function swapiGetAllPlanets",
+    "deploy": "serverless deploy --function-name test-node-lambda --zip-file fileb://nodejs.zip",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cesar Rodriguez",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
